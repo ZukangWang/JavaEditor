@@ -29,15 +29,15 @@ public class EditorFrame extends JFrame {
 	private JTabbedPane tabPane;
 	private Box box;
 	private JDesktopPane desk;
-	private JSplitPane editorSplitPane;//ÓÃÓÚ·Ö¸ôÖ÷±à¼­ÇøºÍÐÅÏ¢ÏÔÊ¾ÇøµÄÈÝÆ÷
-	private JScrollPane infoPane;//¿ÉÒÔ¹ö¶¯µÄ JScrollPane ¶ÔÏó£¬ÓÃÓÚ·Å infoArea
-	private JTextArea infoArea; //ÓÃÓÚÏÔÊ¾ÐÅÏ¢µÄÎÄ±¾Óò
+	private JSplitPane editorSplitPane;//ï¿½ï¿½ï¿½Ú·Ö¸ï¿½ï¿½ï¿½ï¿½à¼­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private JScrollPane infoPane;//ï¿½ï¿½ï¿½Ô¹ï¿½ï¿½ï¿½ï¿½ï¿½ JScrollPane ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú·ï¿½ infoArea
+	private JTextArea infoArea; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½
 	private JScrollPane treePane;
-	private JSplitPane mainSplitPane; //Õû¸ö½çÃæµÄ·Ö¸ô×é¼þµÄÈÝÆ÷
-	private JTree tree; //ÏîÄ¿Ê÷¶ÔÏó
-	private JMenuBar menuBar; //²Ëµ¥À¸¶ÔÏó
-	private JMenu editMenu; //±à¼­²Ëµ¥¶ÔÏó
-	private JMenu fileMenu; //ÎÄ¼þ²Ëµ¥
+	private JSplitPane mainSplitPane; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä·Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private JTree tree; //ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private JMenuBar menuBar; //ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private JMenu editMenu; //ï¿½à¼­ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½
+	private JMenu fileMenu; //ï¿½Ä¼ï¿½ï¿½Ëµï¿½
 	
 	public EditorFrame(String title){
 		super(title);
@@ -45,71 +45,71 @@ public class EditorFrame extends JFrame {
 		pack();
 	}
 	
-	//ÐÂ½¨ÎÄ¼þµÄ Action ¶ÔÏó
-	private Action fileNew = new AbstractAction("ÐÂ½¨ÎÄ¼þ") {
+	//ï¿½Â½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ Action ï¿½ï¿½ï¿½ï¿½
+	private Action fileNew = new AbstractAction("ï¿½Â½ï¿½ï¿½Ä¼ï¿½") {
 		public void actionPerformed(ActionEvent e) {
 
 		}
 	};
 	
-	private Action exit = new AbstractAction("ÍË³ö"){
+	private Action exit = new AbstractAction("ï¿½Ë³ï¿½"){
 		public void actionPerformed(ActionEvent e) {
 
 		}		
 	};
 	
-	private Action copy = new AbstractAction("¸´ÖÆ"){
+	private Action copy = new AbstractAction("ï¿½ï¿½ï¿½ï¿½"){
 		public void actionPerformed(ActionEvent e) {
-
+			//
 		}		
 	};
 	
 	public void addListeners() {
-		//ÐÂ½¨ÎÄ¼þµÄ¼àÌýÆ÷
+		//ï¿½Â½ï¿½ï¿½Ä¼ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
 		fileMenu.add(fileNew).setAccelerator(KeyStroke.getKeyStroke('N', InputEvent.CTRL_MASK));
-		//Ê¡ÂÔÆäËû´´½¨¼àÌýÆ÷µÄ´úÂë
+		//Ê¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä´ï¿½ï¿½ï¿½
 		fileMenu.add(exit);
-		//Ìí¼Ó¸´ÖÆ¼àÌýÆ÷
+		//ï¿½ï¿½Ó¸ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½
 		editMenu.add(copy).setAccelerator(KeyStroke.getKeyStroke('C', InputEvent.CTRL_MASK));
-		//Ê¡ÂÔÌí¼ÓÆäËû¼àÌýÆ÷µÄ´úÂë
+		//Ê¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä´ï¿½ï¿½ï¿½
 	}
 	
 	public void initFrame() {
-		//ÉèÖÃ´°¿Ú¹Ø±Õ£¬ÍË³ö³ÌÐò
+		//ï¿½ï¿½ï¿½Ã´ï¿½ï¿½Ú¹Ø±Õ£ï¿½ï¿½Ë³ï¿½ï¿½ï¿½ï¿½ï¿½
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		//´´½¨Ö÷±à¼­ÇøµÄ tabPane
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½à¼­ï¿½ï¿½ï¿½ï¿½ tabPane
 		tabPane = new JTabbedPane(JTabbedPane.TOP, JTabbedPane.SCROLL_TAB_LAYOUT );
-		desk = new JDesktopPane();//´´½¨ JDesktopPane ¶ÔÏó
-		desk.setBackground(Color.GRAY);//ÉèÖÃ desk µÄ±³¾°ÑÕÉ«Îª»ÒÉ«
-		box = new Box(BoxLayout.Y_AXIS);//ÉèÖÃ box µÄ²¼¾Ö
+		desk = new JDesktopPane();//ï¿½ï¿½ï¿½ï¿½ JDesktopPane ï¿½ï¿½ï¿½ï¿½
+		desk.setBackground(Color.GRAY);//ï¿½ï¿½ï¿½ï¿½ desk ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½É«Îªï¿½ï¿½É«
+		box = new Box(BoxLayout.Y_AXIS);//ï¿½ï¿½ï¿½ï¿½ box ï¿½Ä²ï¿½ï¿½ï¿½
 		box.add(tabPane);
 		box.add(desk);
-		infoArea = new JTextArea("", 5, 50); //´´½¨ÐÅÏ¢ÏÔÊ¾ÇøµÄÎÄ±¾Óò
-		infoPane = new JScrollPane(infoArea); //½« infoArea ÎÄ±¾Óò×÷Îª×é¼þ·Åµ½ infoPane ÖÐ
-		infoArea.setEditable(false); //ÉèÖÃÐÅÏ¢Çø²»¿É±à¼­
-		//´´½¨Õâ¸ö·Ö¸ô×é¼þµÄÈÝÆ÷£¬²¢½« box ¶ÔÏóºÍ infoPane ·ÅÖÃÆäÖÐ
+		infoArea = new JTextArea("", 5, 50); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½
+		infoPane = new JScrollPane(infoArea); //ï¿½ï¿½ infoArea ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½Åµï¿½ infoPane ï¿½ï¿½
+		infoArea.setEditable(false); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½É±à¼­
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ box ï¿½ï¿½ï¿½ï¿½ï¿½ infoPane ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		editorSplitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, box, infoPane);
 		editorSplitPane.setDividerSize(3);
 		editorSplitPane.setDividerLocation(500);
 		//add(editorSplitPane);	
 		
-		tree = new JTree();//´´½¨Ê÷¶ÔÏó
-		treePane = new JScrollPane(tree); //´´½¨¿É¹ö¶¯µÄÈÝÆ÷¶ÔÏó
-		//´´½¨Ö÷½çÃæµÄ JSplitPane£¬ºáÏò£¬×ó±ßÎª treePane£¬ÓÒ±ßÎª editorSplitPane
+		tree = new JTree();//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		treePane = new JScrollPane(tree); //ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ JSplitPaneï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª treePaneï¿½ï¿½ï¿½Ò±ï¿½Îª editorSplitPane
 		mainSplitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, treePane,editorSplitPane);
-		mainSplitPane.setDividerLocation(200); //ÉèÖÃ·Ö¸ôÌõµÄÎ»ÖÃ
+		mainSplitPane.setDividerLocation(200); //ï¿½ï¿½ï¿½Ã·Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
 		
 		add(mainSplitPane);	
 		
-		menuBar = new JMenuBar();//´´½¨²Ëµ¥À¸¶ÔÏó
-		editMenu = new JMenu("±à¼­");//´´½¨±à¼­²Ëµ¥¶ÔÏó
-		fileMenu = new JMenu("ÎÄ¼þ");//´´½¨ÎÄ¼þ²Ëµ¥
-		menuBar.add(fileMenu); //½«ÎÄ¼þ²Ëµ¥Ìí¼Óµ½²Ëµ¥À¸ÖÐ
-		menuBar.add(editMenu); //½«±à¼­²Ëµ¥Ìí¼Óµ½²Ëµ¥À¸ÖÐ
-		setJMenuBar(menuBar); //ÉèÖÃ JFrame µÄ²Ëµ¥À¸
+		menuBar = new JMenuBar();//ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		editMenu = new JMenu("ï¿½à¼­");//ï¿½ï¿½ï¿½ï¿½ï¿½à¼­ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½
+		fileMenu = new JMenu("ï¿½Ä¼ï¿½");//ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ëµï¿½
+		menuBar.add(fileMenu); //ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ëµï¿½ï¿½ï¿½Óµï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½
+		menuBar.add(editMenu); //ï¿½ï¿½ï¿½à¼­ï¿½Ëµï¿½ï¿½ï¿½Óµï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½
+		setJMenuBar(menuBar); //ï¿½ï¿½ï¿½ï¿½ JFrame ï¿½Ä²Ëµï¿½ï¿½ï¿½
 		addListeners();
 		
-		pack();//Ê¹ JFrame µ÷Õû×î¼Ñ´óÐ¡
+		pack();//Ê¹ JFrame ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½Ð¡
 	}
 	
 }
